@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #ffe6e6;
+            font-family: Arial, sans-serif;
+            margin-top: 100px;
+        }
+        h1 {
+            color: #d63333;
+            font-size: 2rem;
+        }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+        }
+        button {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        #yes {
+            background-color: #28a745;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        #no {
+            background-color: #dc3545;
+            color: white;
+            position: absolute;
+        }
+        .cat-img {
+            margin-top: 20px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Will you be my Valentine?</h1>
+    
+    <div class="buttons">
+        <button id="yes">Yes</button>
+        <button id="no">No</button>
+    </div>
+    
+    <img class="cat-img" src="catcute.jpeg" alt="Cute Cat">
+
+    <script>
+        let yesButton = document.getElementById("yes");
+        let noButton = document.getElementById("no");
+        
+        noButton.addEventListener("mousedown", function() {
+            let x = Math.random() * (window.innerWidth - 100);
+            let y = Math.random() * (window.innerHeight - 100);
+            this.style.left = x + "px";
+            this.style.top = y + "px";
+            
+            let currentSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+            yesButton.style.fontSize = (currentSize + 5) + "px";
+            yesButton.style.padding = (parseFloat(window.getComputedStyle(yesButton).padding) + 5) + "px";
+        });
+
+        yesButton.addEventListener("click", function() {
+            alert("Yay! 🎉 Happy Valentine's Day! 💖");
+        });
+    </script>
+
+</body>
+</html>
